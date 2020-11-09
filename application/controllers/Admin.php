@@ -638,6 +638,57 @@ class Admin extends MY_Controller{
 				';
 				echo $this->html;
 				break;
+
+			case 'siswa':
+				$this->M_admin->siswa_id= $this->uri->segment(3);
+				$row= $this->M_admin->admin_edit_data_siswa();
+				$this->html= '
+					<form action="'.base_url().'admin/update-data-siswa" role="form" id="editSiswa" method="post" enctype="multipart/form-data">
+						<input type="hidden" name="siswa_id" value="'.$row->siswa_id.'">	
+						<div class="form-group">
+							<label for="inputNis">NIS</label>
+							<input readonly value="'.$row->siswa_nis.'" name="nis" type="text" class="form-control" id="inputNis" placeholder="*) Nomor Induk Siswa(NIS)" required="">
+						</div>
+						<div class="form-group">
+							<label for="inputNama">Nama Siswa</label>
+							<input value="'.$row->siswa_nama.'" name="nama" type="text" class="form-control" id="inputNama" placeholder="*) Nama Siswa" required="">
+						</div>
+						<div class="form-group">
+							<label for="inputKelas">Kelas</label>
+							<select name="kelas_id" class="form-control" id="inputKelas" required="">
+								<option value="" disabled> -- Pilih Kelas -- </option>
+							';
+							foreach ($this->M_admin->admin_kelas() as $key => $value) {
+								$this->html.= ($value->kelas_id == $row->kelas_id) ? '<option selected value="'.$value->kelas_id.'">'.$value->kelas_nama.'</option>' : '<option value="'.$value->kelas_id.'">'.$value->kelas_nama.'</option>';
+							}
+							$this->html.= '
+							</select>							
+						</div>
+						<div class="form-group">
+							<label for="inputNoTelp">No Telpon</label>
+							<input value="'.$row->siswa_telp.'" name="telp" type="text" class="form-control" id="inputNoTelp" placeholder="*) Ex: 08123456789" required="">
+						</div>
+						<div class="form-group">
+							<label for="inputEmail">Email</label>
+							<input value="'.$row->siswa_email.'" name="email" type="email" class="form-control" id="inputEmail" placeholder="*) Ex: email@gmail.com" required="">
+						</div>
+						<div class="form-group">
+							<label for="inputAlamat">Alamat</label>
+							<textarea name="alamat" class="form-control" id="inputAlamat" required="" rows="3" placeholder="Alamat ...">'.$row->siswa_alamat.'</textarea>
+						</div>
+						<div class="form-group">
+							<label for="inputUsername">Username</label>
+							<input readonly value="'.$row->siswa_username.'" name="username" type="text" class="form-control" id="inputUsername" placeholder="*) Username" required="">
+						</div>
+						<div class="form-group">
+							<label for="inputPassword">Password <small>*) jika tidak ada perubahan password masih sama seperti sebelumnya</small></label>
+							<input value="'.$row->siswa_password.'" name="password" type="password" class="form-control" id="inputPassword" placeholder="*******" required="">
+						</div>
+						<button type="submit" class="btn btn-primary">Publish</button>
+					</form>
+				';
+				echo $this->html;
+				break;
 			
 			default:
 				# code...
@@ -683,6 +734,21 @@ class Admin extends MY_Controller{
 	{
 		switch ($_SESSION['level']) {
 			case 'admin':
+				$this->M_admin->post= $this->input->post();
+				if ( $this->M_admin->admin_update_data_siswa() ) {
+					$this->msg= [
+						'stats'=> 1,
+						'msg'=> 'Data Berhasil Diupdate',
+					];
+				} else {
+					$this->msg= [
+						'stats'=> 0,
+						'msg'=> 'Maaf Data Gagal Diupdate',
+					];
+				}
+				echo json_encode($this->msg);
+				break;
+			case 'siswa':
 				$this->M_admin->post= $this->input->post();
 				if ( $this->M_admin->admin_update_data_siswa() ) {
 					$this->msg= [
