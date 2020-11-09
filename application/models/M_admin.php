@@ -218,7 +218,8 @@ class M_admin extends CI_Model{
 					ON pbm.pelajaran_id=pelajaran.pelajaran_id
 				LEFT JOIN kelas
 					ON pelajaran.kelas_id=kelas.kelas_id
-			WHERE pbm.guru_id='{$this->guru_id}' 
+			WHERE pbm.guru_id='{$this->guru_id}'
+			GROUP BY kelas.kelas_id,pbm.tahun_ajaran 
 		")->result_object();
 	}
 
