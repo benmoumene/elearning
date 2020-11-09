@@ -35,11 +35,13 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th>Tahun Ajaran</th>
                   <th>Nama Tugas</th>
                   <th>Nama Materi</th>
                   <th>Kelas</th>
                   <th>Pelajaran</th>
                   <th>Tanggal Upload</th>
+                  <th>Tanggal Pengerjaan</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -48,11 +50,13 @@
                   foreach ($rows as $key => $value) {
                     echo "
                     <tr>
+                      <td>$value->tahun_ajaran</td>
                       <td>$value->nama_soal</td>
                       <td>$value->judul_materi</td>
                       <td>$value->kelas_nama</td>
                       <td>$value->pelajaran_nama</td>
                       <td>".tgl_indo($value->tanggal_upload)."</td>
+                      <td>".tgl_indo($value->start).' s.d '.tgl_indo($value->end)."</td>
                       <td>
                         <div class='btn-group'>
                           <button type='button' class='btn btn-default'>Action</button>

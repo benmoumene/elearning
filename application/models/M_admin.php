@@ -264,12 +264,12 @@ class M_admin extends CI_Model{
 	function guru_data_upload()
 	{
 		return $this->db->query("
-			SELECT *
+			SELECT *,(SELECT pbm.tahun_ajaran FROM `soal` JOIN materi ON materi.materi_id=soal.materi_id JOIN pbm ON pbm.pelajaran_id=materi.pelajaran_id WHERE materi.materi_id=m.materi_id GROUP BY materi.materi_id) AS tahun_ajaran
 			FROM soal
-				LEFT JOIN materi
-					ON soal.materi_id=materi.materi_id
+				LEFT JOIN materi AS m
+					ON soal.materi_id=m.materi_id
 				LEFT JOIN pelajaran
-					ON materi.pelajaran_id=pelajaran.pelajaran_id
+					ON m.pelajaran_id=pelajaran.pelajaran_id
 				LEFT JOIN kelas
 					ON pelajaran.kelas_id=kelas.kelas_id
 				ORDER BY soal.tanggal_upload DESC
@@ -283,6 +283,8 @@ class M_admin extends CI_Model{
 			'materi_id'=> $this->post['materi_id'],
 			'tanggal_upload'=> date('Y-m-d'),
 			'nama_file'=> $this->post['upload_data']['file_name'],
+			'start'=> $this->post['start'],
+			'end'=> $this->post['end'],
 			// 'file'=> $this->post['upload_data']['file_type'],
 			// 'file'=> $this->post['upload_data']['file_ext'],
 			] );
@@ -297,7 +299,9 @@ class M_admin extends CI_Model{
 	{
 		$_data= [
 			'nama_soal'=> $this->post['nama_soal'],
-			'materi_id'=> $this->post['materi_id']
+			'materi_id'=> $this->post['materi_id'],
+			'start'=> $this->post['start'],
+			'end'=> $this->post['end'],
 		];
 		if ( ! empty($this->post['nama_file']) ) {
 			$_data['nama_file']= $this->post['nama_file'];

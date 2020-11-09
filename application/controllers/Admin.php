@@ -1463,6 +1463,16 @@ class Admin extends MY_Controller{
 							<label for="inputNama">Upload Soal</label>
 							<input name="fupload" type="file" class="form-control"  required="">
 						</div>
+						<div class="form-group">
+							<label for="inputNama">Tanggal Pengerjaan</label>
+							<div class="input-group mb-3">
+								<input name="start" type="date" class="form-control" required="">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">s.d</span>
+								</div>
+								<input name="end" type="date" class="form-control" required="">
+							</div>
+						</div>
 						<button type="submit" class="btn btn-primary">Publish</button>
 					</form>
 				';
@@ -1505,6 +1515,18 @@ class Admin extends MY_Controller{
 							<label for="inputNama">Upload Soal</label>
 							<input name="fupload" type="file" class="form-control">
 						</div>
+						
+						<div class="form-group">
+							<label for="inputNama">Tanggal Pengerjaan</label>
+							<div class="input-group mb-3">
+								<input value="'.$row->start.'" name="start" type="date" class="form-control" required="">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">s.d</span>
+								</div>
+								<input value="'.$row->end.'" name="end" type="date" class="form-control" required="">
+							</div>
+						</div>
+						
 						<input value="'.$row->soal_id.'" type="hidden" name="soal_id">
 						<button type="submit" class="btn btn-primary">Publish</button>
 					</form>
