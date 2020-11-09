@@ -35,10 +35,14 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th>Tahun Ajaran</th>
+                  <th>NIS</th>
                   <th>Nama Siswa</th>
                   <th>Nama Tugas</th>
+                  <th>Materi</th>
                   <th>Kelas</th>
-                  <th>Link Download</th>
+                  <th>Pelajaran</th>
+                  <th>Link Download Jawaban Tugas</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,9 +50,13 @@
                   foreach ($rows as $key => $value) {
                     echo "
                       <tr>
+                        <td>$value->tahun_ajaran</td>
+                        <td>$value->siswa_nis</td>
                         <td>$value->siswa_nama</td>
                         <td>$value->nama_soal</td>
+                        <td>$value->judul_materi</td>
                         <td>$value->kelas_nama</td>
+                        <td>$value->pelajaran_nama</td>
                         <td><a class='label-success' target='_blank' href='".base_url('src/upload/'.$value->nama_file)."' >Download</a></td>
                       </tr>
                     ";

@@ -329,10 +329,14 @@ class M_admin extends CI_Model{
 	{
 		return $this->db->query("
 			SELECT 
+				pbm.tahun_ajaran,
 				jawaban.nama_file,
 				siswa.siswa_nama,
 				soal.nama_soal,
-				kelas.kelas_nama
+				kelas.kelas_nama,
+				pelajaran.pelajaran_nama,
+				materi.judul_materi,
+				siswa.siswa_nis
 			FROM jawaban
 				LEFT JOIN siswa
 					ON jawaban.siswa_id=jawaban.siswa_id
@@ -347,6 +351,7 @@ class M_admin extends CI_Model{
 				LEFT JOIN kelas
 					ON pelajaran.kelas_id=kelas.kelas_id
 			WHERE pbm.guru_id='{$this->session->userdata["id"]}'
+			GROUP by jawaban.jawaban_id
 		")->result_object();
 	}
 	// end guru data download
