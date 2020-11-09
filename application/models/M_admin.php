@@ -359,11 +359,12 @@ class M_admin extends CI_Model{
 	// start guru siswa belum kumpul
 	public function guru_siswa_belum_kumpul()
 	{
+		// soal.nama_soal,
+				// siswa.siswa_nama,
+				// kelas.kelas_nama
 		return $this->db->query("
 			SELECT
-				soal.nama_soal,
-				siswa.siswa_nama,
-				kelas.kelas_nama
+				*
 			FROM soal
 				LEFT JOIN materi
 					ON soal.materi_id=materi.materi_id
