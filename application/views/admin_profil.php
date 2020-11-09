@@ -41,9 +41,7 @@
                 </div>
                 <div class="form-group">
                   <label for="inputAlamat">Alamat</label>
-                  <textarea name="alamat" class="form-control" id="inputAlamat" required="" readonly>
-                    <?php echo $admin->alamat?>
-                  </textarea>
+                  <textarea name="alamat" class="form-control" id="inputAlamat" required="" readonly><?php echo $admin->alamat?></textarea>
                 </div>
                 <div class="form-group">
                   <label for="inputUsername">Username</label>
