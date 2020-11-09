@@ -205,6 +205,7 @@ class M_admin extends CI_Model{
 				LEFT JOIN kelas
 					ON pelajaran.kelas_id=kelas.kelas_id
 			WHERE pbm.guru_id='{$this->session->userdata["id"]}'
+			GROUP BY materi.materi_id
 			ORDER BY materi.tanggal_upload DESC
 		")->result_object();
 	}
