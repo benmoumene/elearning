@@ -1241,7 +1241,7 @@ class Admin extends MY_Controller{
 								<option value="" disabled> -- Pilih Pelajaran -- </option>
 				';
 								foreach ($this->M_admin->guru_data_materi_input_pelajaran() as $key => $value) {
-									$this->html .= ($value->pelajaran_id == $row->pelajaran_id)? '<option value="'.$value->pelajaran_id.'" selected> ('.$value->kelas_nama.') '.$value->pelajaran_nama.'</option>' : '<option value="'.$value->pelajaran_id.'"> ('.$value->kelas_nama.') '.$value->pelajaran_nama.'</option>';
+									$this->html .= ($value->pelajaran_id == $row->pelajaran_id)? '<option value="'.$value->pelajaran_id.'" selected> (Tahun Ajaran '.$value->tahun_ajaran.' '.$value->kelas_nama.') '.$value->pelajaran_nama.'</option>' : '<option value="'.$value->pelajaran_id.'"> ('.$value->kelas_nama.') '.$value->pelajaran_nama.'</option>';
 								}
 
 				$this->html .= '

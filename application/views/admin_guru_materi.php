@@ -35,6 +35,7 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
+                  <th>Tahun Ajaran</th>
                   <th>Nama Materi</th>
                   <th>Kelas</th>
                   <th>Pelajaran</th>
@@ -47,6 +48,7 @@
                   foreach ($rows as $key => $value) {
                     echo "
                       <tr>
+                        <td>$value->tahun_ajaran</td>
                         <td>$value->judul_materi</td>
                         <td>$value->kelas_nama</td>
                         <td>$value->pelajaran_nama</td>
