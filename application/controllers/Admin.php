@@ -1241,7 +1241,7 @@ class Admin extends MY_Controller{
 								<option value="" disabled> -- Pilih Pelajaran -- </option>
 				';
 								foreach ($this->M_admin->guru_data_materi_input_pelajaran() as $key => $value) {
-									$this->html .= ($value->pelajaran_id == $row->pelajaran_id)? '<option value="'.$value->pelajaran_id.'" selected> (Tahun Ajaran '.$value->tahun_ajaran.' '.$value->kelas_nama.') '.$value->pelajaran_nama.'</option>' : '<option value="'.$value->pelajaran_id.'"> ('.$value->kelas_nama.') '.$value->pelajaran_nama.'</option>';
+									$this->html .= ($value->pelajaran_id == $row->pelajaran_id)? '<option value="'.$value->pelajaran_id.'" selected> (Tahun Ajaran '.$value->tahun_ajaran.' '.$value->kelas_nama.') '.$value->pelajaran_nama.'</option>' : '<option value="'.$value->pelajaran_id.'"> (Tahun Ajaran '.$value->tahun_ajaran.' '.$value->kelas_nama.') '.$value->pelajaran_nama.'</option>';
 								}
 
 				$this->html .= '
@@ -1453,7 +1453,7 @@ class Admin extends MY_Controller{
 								<option value="" selected disabled> -- Pilih Materi -- </option>
 				';
 								foreach ($this->M_admin->guru_data_materi() as $key => $value) {
-									$this->html .= '<option value="'.$value->materi_id.'">'.$value->judul_materi.' ('.$value->kelas_nama.' '.$value->pelajaran_nama.')</option>';
+									$this->html .= '<option value="'.$value->materi_id.'">(Tahun Ajaran '.$value->tahun_ajaran.' '.$value->kelas_nama.' '.$value->pelajaran_nama.') '.$value->judul_materi.'</option>';
 								}
 
 				$this->html .= '
@@ -1492,7 +1492,7 @@ class Admin extends MY_Controller{
 								<option value="" disabled> -- Pilih Materi -- </option>
 				';
 								foreach ($this->M_admin->guru_data_materi() as $key => $value) {
-									$this->html .= ($row->materi_id == $value->materi_id) ? '<option value="'.$value->materi_id.'" selected >'.$value->judul_materi.' ('.$value->kelas_nama.' '.$value->pelajaran_nama.')</option>' : '<option value="'.$value->materi_id.'">'.$value->judul_materi.' ('.$value->kelas_nama.' '.$value->pelajaran_nama.')</option>';
+									$this->html .= ($row->materi_id == $value->materi_id) ? '<option value="'.$value->materi_id.'" selected >(Tahun Ajaran '.$value->tahun_ajaran.' '.$value->judul_materi.'</option>' : '<option value="'.$value->materi_id.'">(Tahun Ajaran '.$value->tahun_ajaran.' '.$value->judul_materi.'</option>';
 								}
 
 				$this->html .= '
