@@ -30,7 +30,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Login SMK Tamansiswa Jetis</p>
+      <p class="login-box-msg">Login SMK</p>
         <div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h5><i class="icon fa fa-warning"></i> Alert!</h5>

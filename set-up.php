@@ -79,7 +79,7 @@ $import = new import_db([
     'host'=> 'localhost',
     'user'=> 'root',
     'pass'=> '',
-    'dbname'=> 'oky_kp',
+    'dbname'=> 'elearning_smk',
     'sqldump'=> 'sql_dump/oky_kp.sql', 
 ]);
 
