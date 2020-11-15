@@ -31,6 +31,58 @@
             </div>
           </div>
           <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box">
+              <div class="inner">
+                <h3><?= $counts['guru'] ?></h3>
+                <p>Guru</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="data-guru" class="small-box-footer text-primary">Info lebih lanjut <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box">
+              <div class="inner">
+                <h3><?= $counts['siswa'] ?></h3>
+                <p>Siswa</p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-person-add"></i>
+              </div>
+              <a href="data-siswa" class="small-box-footer text-primary">Info lebih lanjut <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box">
+              <div class="inner">
+                <h3><?= $counts['kelas'] ?></h3>
+                <p>Kelas</p>
+              </div>
+              <div class="icon">
+                <i class="ionXXX ion-person-addXXX fa fa-graduation-cap"></i>
+              </div>
+              <a href="kelas" class="small-box-footer text-primary">Info lebih lanjut <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box">
+              <div class="inner">
+                <h3><?= $counts['pelajaran'] ?></h3>
+                <p>Pelajaran</p>
+              </div>
+              <div class="icon">
+                <i class="ionXXX ion-person-addXXX fa fa-graduation-cap"></i>
+              </div>
+              <a href="pelajaran" class="small-box-footer text-primary">Info lebih lanjut <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
         </div>
         <!-- /.row -->
         <!-- Main row -->

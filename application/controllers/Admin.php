@@ -21,6 +21,12 @@ class Admin extends MY_Controller{
 			case 'admin':
 				# beranda admin
 				$this->view= 'admin_beranda';
+				$this->content['counts']= array(
+					'guru' 		=> count($this->M_admin->admin_data_guru()),
+					'siswa' 	=> count($this->M_admin->admin_data_siswa()),
+					'kelas' 	=> count($this->M_admin->admin_kelas()),
+					'pelajaran' => count($this->M_admin->pelajaran())
+				);
 				$this->render_pages();
 				break;
 			
