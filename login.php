@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <!-- Title and other stuffs -->
-  <title>Login - E-Learning smk</title>
+  <title>Login - E-Learning SMA N 1 IMOGIRI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -38,7 +38,7 @@
           <!-- Logo. -->
           <div class="logo" align="center">
             <h1><span class="bold">E-Learning</span></h1>
-            <p class="meta">smk</p>
+            <p class="meta">SMA N 1 IMOGIRI</p>
           </div>
           <!-- Logo ends -->
         </div>

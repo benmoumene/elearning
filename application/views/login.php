@@ -34,7 +34,7 @@
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
-      <p class="login-box-msg">Login SMK</p>
+      <p class="login-box-msg">Login SMA N 1 IMOGIRI</p>
 
       <form action="<?php echo base_url('login/aksi_login'); ?>" method="post">
         <div class="input-group mb-3">

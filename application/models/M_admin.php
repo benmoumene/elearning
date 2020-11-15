@@ -318,6 +318,7 @@ class M_admin extends CI_Model{
 			'soal_id'=> $this->post['soal_id'],
 			'nama_file'=> $this->post['nama_file'],
 			'siswa_id'=> $this->session->userdata['id'],
+			'tanggal_upload'=> date('Y-m-d'),
 			// 'file'=> $this->post['upload_data']['file_type'],
 			// 'file'=> $this->post['upload_data']['file_ext'],
 		] );

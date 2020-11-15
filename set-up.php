@@ -79,8 +79,8 @@ $import = new import_db([
     'host'=> 'localhost',
     'user'=> 'root',
     'pass'=> '',
-    'dbname'=> 'elearning_smk',
-    'sqldump'=> 'sql_dump/oky_kp.sql', 
+    'dbname'=> 'elearning_sma',
+    'sqldump'=> 'sql_dump/elearning_sma.sql', 
 ]);
 
 echo "<pre>";

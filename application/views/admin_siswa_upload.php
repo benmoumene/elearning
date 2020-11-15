@@ -38,20 +38,56 @@
                   <th>Nama Materi</th>
                   <th>Pelajaran</th>
                   <th>Status</th>
-                  <th>Tanggal Upload</th>
+                  <th>Tanggal Pengerjaan</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php
                   foreach ($rows as $key => $value) {
+                    $value->status_soal = NULL;
+                    if ( $value->status == 'true' ) {
+                      $value->status_label = '<span class="badge badge-pill badge-info">Sudah Dikerjakan</span>';
+                      $value->action_html = "
+                        <a target='_blank' class='dropdown-item' href='".base_url('src/materi/'.$value->materi_file)."'>Download Materi</a>
+                      ";
+
+                    } elseif ( $value->status == 'false' ) {
+                      if ( ( strtotime(date('Y-m-d')) < strtotime($value->start) ) ) {
+                        $value->status_soal = 'BELUM_WAKTUNYA';
+                        $value->status_label = '<span class="badge badge-pill badge-info">Belum Waktunya Mengerjakan</span>';
+                        $value->action_html = "
+                          <a target='_blank' class='dropdown-item' href='".base_url('src/materi/'.$value->materi_file)."'>Download Materi</a>
+                        ";
+                      }
+
+                      if ( ( strtotime(date('Y-m-d')) > strtotime($value->end) ) ) {
+                        $value->status_soal = 'WAKTU_HABIS';
+                        $value->status_label = '<span class="badge badge-pill badge-danger">Waktu Habis</span>';
+                        $value->action_html = "
+                          <a target='_blank' class='dropdown-item' href='".base_url('src/materi/'.$value->materi_file)."'>Download Materi</a>
+                        ";
+                      }
+                      
+                      if ( (strtotime(date('Y-m-d')) >= strtotime($value->start)) && (strtotime(date('Y-m-d')) <= strtotime($value->start)) ) {
+                        $value->status_soal = 'SUDAH_WAKTUNYA';
+                        $value->status_label = '<span class="badge badge-pill badge-warning">Belum Dikerjakan</span>';
+                        $value->action_html = "
+                          <a target='_blank' class='dropdown-item' href='".base_url('src/upload/'.$value->soal_file)."'>Download Tugas</a>
+                          <a target='_blank' class='dropdown-item' href='".base_url('src/materi/'.$value->materi_file)."'>Download Materi</a>
+                          <a class='dropdown-item answer' href='".base_url('admin/form-upload-jawaban/'.$value->soal_id)."'>Upload Jawaban</a>
+                        ";
+                      }
+                      
+                    }
+
                     echo "
                       <tr>
                         <td>$value->nama_soal</td>
                         <td>$value->judul_materi</td>
                         <td>$value->pelajaran_nama</td>
-                        <td>".($value->status=='true'? '<span class="badge badge-pill badge-info">Sudah Dikerjakan</span>' : '<span class="badge badge-pill badge-warning">Belum Dikerjakan</span>' )."</td>
-                        <td>".tgl_indo($value->tanggal_upload)."</td>
+                        <td>$value->status_label</td>
+                        <td>".tgl_indo($value->start).' s.d '.tgl_indo($value->end)."</td>
                         <td>
                           <div class='btn-group'>
                             <button type='button' class='btn btn-default'>Action</button>
@@ -60,9 +96,7 @@
                               <span class='sr-only'>Toggle Dropdown</span>
                             </button>
                             <div class='dropdown-menu' role='menu' x-placement='top-start' style='position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(67px, -165px, 0px);'>
-                              <a target='_blank' class='dropdown-item' href='".base_url('src/upload/'.$value->soal_file)."'>Download Tugas</a>
-                              <a target='_blank' class='dropdown-item' href='".base_url('src/materi/'.$value->materi_file)."'>Download Materi</a>
-                              ".($value->status=='true'? null : "<a class='dropdown-item answer' href='".base_url('admin/form-upload-jawaban/'.$value->soal_id)."'>Upload Jawaban</a>")."
+                              $value->action_html
                             </div>
                           </div>
                         </td> 
